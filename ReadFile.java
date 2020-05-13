@@ -1,35 +1,34 @@
-import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.opencsv.CSVReader;
 
 public class ReadFile {
-    public String[] getData(String sourceFile,int index){
-        String line;
-        List<String[]> allData = new ArrayList<String[]>();
-        try (BufferedReader buffer = new BufferedReader(new FileReader(sourceFile))) {
-            while ((line = buffer.readLine()) != null) {
-                String[] data = line.split(",");
-                allData.add(data);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return allData.get(index);
+    private String file;
+    private List<String[]> list;
+
+    public ReadFile(String file) {
+        list = new ArrayList<String[]>();
+        this.file = file;
+        readFile(file);
     }
-    public List<String[]> getAllData(String sourceFile){
-        String line;
-        List<String[]> allData = new ArrayList<String[]>();
-        try (BufferedReader buffer = new BufferedReader(new FileReader(sourceFile))) {
-            while ((line = buffer.readLine()) != null) {
-                String[] data = line.split(",");
-                allData.add(data);
+    private void readFile(String sourceFile) {
+        String[] readline = null;
+        try (CSVReader csvReader = new CSVReader(new FileReader(sourceFile))) {
+            while ((readline = csvReader.readNext()) != null) {
+                this.list.add(readline);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return allData;
+
     }
 
+    public List<String[]> getAllData() {
+        return this.list.subList(1, list.size());
+    }
+
+    public String[] getHeader() {
+        return this.list.get(0);
+    }
 }
