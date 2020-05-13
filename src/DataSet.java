@@ -1,3 +1,5 @@
+package src;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +23,7 @@ public class DataSet {
         }
         this.allData = rFile.getAllData();
         this.lastUpdate = header[header.length - 1];
-        this.name = rFile.toString();
+        this.name = rFile.getFile();
         this.dataSeries = makeDataSet();
     }
 

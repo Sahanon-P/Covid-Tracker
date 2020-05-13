@@ -1,3 +1,5 @@
+package src;
+
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +32,8 @@ public class ReadFile {
 
     public String[] getHeader() {
         return this.list.get(0);
+    }
+    public String getFile(){
+        return this.file;
     }
 }

@@ -1,3 +1,5 @@
+package src;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +35,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage prime) throws Exception {
-        prime.setTitle("COVID19 Data Visualization 1.0");
+        prime.setTitle("COVID19 Tracker");
         screenBounds = Screen.getPrimary().getBounds();
         DownloadFile.urlReader();
 

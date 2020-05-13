@@ -1,3 +1,5 @@
+package src;
+
 import java.util.List;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
