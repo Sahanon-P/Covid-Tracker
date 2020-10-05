@@ -1,4 +1,4 @@
-# pa4-Sahanon-P Covid-19 tracker
+# Covid-19 tracker
 
 The app that will show the line graph of the Covid-19 confirmed infected,death and recoverd from all the country in the world.
 
